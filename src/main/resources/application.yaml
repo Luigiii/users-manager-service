@@ -1,0 +1,46 @@
+openapi: 3.0.1
+info:
+  title: API
+  version: "1.0"
+tags:
+  - name: USER
+paths:
+  /v1/user:
+    post:
+      tags:
+        - USER
+      summary: Create a new user
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        201:
+          description: Created
+        409:
+          description: E- mail already exists
+      x-codegen-request-body-name: body
+
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - login
+        - password
+        - type
+      properties:
+        login:
+          type: string
+          description: login
+        password:
+          type: string
+          format: password
+        type:
+          type: string
+#          enum:
+#            - TYPE_ADMIN
+#            - TYPE_USER
