@@ -35,12 +35,13 @@ components:
       properties:
         login:
           type: string
-          description: login
         password:
           type: string
           format: password
+        email:
+          type: string
         type:
           type: string
-#          enum:
-#            - TYPE_ADMIN
-#            - TYPE_USER
+          enum:
+            - TYPE_ADMIN
+            - TYPE_USER
